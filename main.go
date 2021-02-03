@@ -7,9 +7,8 @@ import (
 )
 
 func main() {
-	var dieSides int
-
 	fmt.Println("How many sides to roll?")
+	var dieSides int
 	fmt.Scan(&dieSides)
 	_, output := die.Roller(dieSides)
 	fmt.Println(output)
