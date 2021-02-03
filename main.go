@@ -7,8 +7,11 @@ import (
 )
 
 func main() {
+	var dieSides int
 
-	for i := 0; i < 100; i++ {
-		fmt.Println(i+1, "You rolled:", die.Roller(20))
-	}
+	fmt.Println("How many sides to roll?")
+	fmt.Scan(&dieSides)
+
+	fmt.Println("Rolled", dieSides, "sided die and got", die.Roller(dieSides))
+
 }
