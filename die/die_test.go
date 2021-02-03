@@ -24,7 +24,7 @@ func TestValidDieWithInvalidDie(t *testing.T) {
 func TestRollerWithValidDie(t *testing.T) {
 	dieSides := 20
 
-	roll := Roller(dieSides)
+	roll, _ := Roller(dieSides)
 
 	if roll < 1 {
 		t.Fatal("Invalid Die")
@@ -34,7 +34,7 @@ func TestRollerWithValidDie(t *testing.T) {
 func TestRollerWithInvalidDie(t *testing.T) {
 	dieSides := 5
 
-	roll := Roller(dieSides)
+	roll, _ := Roller(dieSides)
 
 	if roll != 0 {
 		t.Fatal("Valid Die")
