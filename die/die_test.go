@@ -4,19 +4,39 @@ import (
 	"testing"
 )
 
-//TestRoller tests Roller function
-func TestRoller(t *testing.T) {
+func TestValidDieWithValidDie(t *testing.T) {
 	dieSides := 20
-	var rolls []int
 
-	for i := 0; i < 100; i++ {
-		roll := Roller(dieSides)
-		rolls = append(rolls, roll)
+	if !validDie(dieSides) {
+		t.Fatal("Not valid die")
 	}
+}
 
-	for _, val := range rolls {
-		if val > dieSides || val < 1 {
-			t.Errorf("Die has inappropriate numbers")
-		}
+func TestValidDieWithInvalidDie(t *testing.T) {
+	dieSides := 5
+
+	if validDie(dieSides) {
+		t.Fatal("Valid Die")
+	}
+}
+
+//TestRoller tests Roller function
+func TestRollerWithValidDie(t *testing.T) {
+	dieSides := 20
+
+	roll := Roller(dieSides)
+
+	if roll < 1 {
+		t.Fatal("Invalid Die")
+	}
+}
+
+func TestRollerWithInvalidDie(t *testing.T) {
+	dieSides := 5
+
+	roll := Roller(dieSides)
+
+	if roll != 0 {
+		t.Fatal("Valid Die")
 	}
 }
