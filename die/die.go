@@ -7,7 +7,19 @@ import (
 
 // Roller rolls a n sided die
 func Roller(n int) int {
-	return rollDie(n)
+	if validDie(n) {
+		return rollDie(n)
+	}
+	return 0
+}
+
+func validDie(die int) bool {
+	switch die {
+	case 2, 3, 4, 6, 8, 10, 12, 20, 100:
+		return true
+	default:
+		return false
+	}
 }
 
 func rollDie(sides int) int {
