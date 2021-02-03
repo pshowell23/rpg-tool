@@ -2,15 +2,20 @@ package die
 
 import (
 	"math/rand"
+	"strconv"
 	"time"
 )
 
 // Roller rolls a n sided die
-func Roller(n int) int {
+func Roller(n int) (int, string) {
+	var output string
 	if validDie(n) {
-		return rollDie(n)
+		roll := rollDie(n)
+		output = "Rolled " + strconv.Itoa(n) + " sided die and got " + strconv.Itoa(roll)
+		return roll, output
 	}
-	return 0
+	output = "Invalid Die of sides " + strconv.Itoa(n)
+	return 0, output
 }
 
 func validDie(die int) bool {
