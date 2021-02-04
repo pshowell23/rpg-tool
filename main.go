@@ -15,7 +15,6 @@ func main() {
 	splitInput := strings.Split(input, "d")
 	dieAmount, _ := strconv.Atoi(splitInput[0])
 	dieSides, _ := strconv.Atoi(splitInput[1])
-	fmt.Println(dieAmount)
 	_, output := die.Roller(dieAmount, dieSides)
 	fmt.Println(output)
 	fmt.Println("Continue? (y/n)")
